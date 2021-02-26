@@ -1,20 +1,20 @@
 {
-    "name": "heldercmattos/laravel-code-generator",
-    "description": "A PHP Package for Code Generation forked from https://github.com/victoryoalli/laravel-code-generator.",
+    "name": "victoryoalli/laravel-code-generator",
+    "description": "A PHP Package for Code Generation.",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Helder Mattos",
-            "email": "heldercmattos@gmail.com"
+            "name": "Victor Yoalli",
+            "email": "victoryoalli@gmail.com"
         }
     ],
-    "homepage": "https://github.com/heldercmattos/laravel-code-generator",
+    "homepage": "https://github.com/victoryoalli/laravel-code-generator",
     "require": {
-        "php": "^8.0",
-        "illuminate/console": "^8.0",
-        "illuminate/filesystem": "^8.0",
-        "illuminate/support": "^8.0",
+        "php": "^7.1",
+        "illuminate/console": "^5.5|^6.0|^7.0|^8.0",
+        "illuminate/filesystem": "^5.5|^6.0|^7.0|^8.0",
+        "illuminate/support": "^5.5|^6.0|^7.0|^8.0",
         "doctrine/dbal": "~2.9"
     },
     "require-dev": {
@@ -23,23 +23,23 @@
     },
     "autoload": {
         "psr-4": {
-            "Heldercmattos\\LaravelCodeGenerator\\": "src/"
+            "VictorYoalli\\LaravelCodeGenerator\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Heldercmattos\\LaravelCodeGenerator\\Tests\\": "tests"
+            "VictorYoalli\\LaravelCodeGenerator\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Heldercmattos\\LaravelCodeGenerator\\LaravelCodeGeneratorServiceProvider"
+                "VictorYoalli\\LaravelCodeGenerator\\LaravelCodeGeneratorServiceProvider"
             ],
             "aliases": {
-                "CodeGenerator": "Heldercmattos\\LaravelCodeGenerator\\Facades\\CodeGenerator",
-                "ModelLoader": "Heldercmattos\\LaravelCodeGenerator\\Facades\\ModelLoader",
-                "CodeHelper": "Heldercmattos\\LaravelCodeGenerator\\Facades\\CodeHelper"
+                "CodeGenerator": "VictorYoalli\\LaravelCodeGenerator\\Facades\\CodeGenerator",
+                "ModelLoader": "VictorYoalli\\LaravelCodeGenerator\\Facades\\ModelLoader",
+                "CodeHelper": "VictorYoalli\\LaravelCodeGenerator\\Facades\\CodeHelper"
             }
         }
     }
