@@ -19,7 +19,7 @@ class GenerateCommand extends Command
 
     public function handle(ModelLoader $loader, CodeGenerator $generator)
     {
-        // many changes to make, beleza
+        // many changes to make, massa
         $model = $this->argument('model');
 
         $template = $this->option('template');
