@@ -3,8 +3,9 @@
 namespace VictorYoalli\LaravelCodeGenerator\Console;
 
 use Illuminate\Console\Command;
-use VictorYoalli\LaravelCodeGenerator\CodeGenerator;
 use VictorYoalli\LaravelCodeGenerator\ModelLoader;
+use VictorYoalli\LaravelCodeGenerator\CodeGenerator;
+use VictorYoalli\LaravelCodeGenerator\Facades\CodeHelper;
 
 class CodegenApiCommand extends Command
 {
