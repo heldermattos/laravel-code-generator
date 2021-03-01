@@ -5,7 +5,6 @@ namespace App\Api\{{$options->version}}\{{CodeHelper::plural($model->name)}}\Rep
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
-use {{$model->complete_name}};
 use App\Contratcts\ApiResourceRepositoryInterface;
 use App\Api\{{$options->version}}\{{CodeHelper::plural($model->name)}}\Http\Resources\{{$model->name}}Collection;
 use App\Api\{{$options->version}}\{{CodeHelper::plural($model->name)}}\Http\Resources\{{$model->name}} as {{$model->name}}Resource;
