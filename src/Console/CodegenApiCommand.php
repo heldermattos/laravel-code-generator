@@ -7,6 +7,11 @@ use VictorYoalli\LaravelCodeGenerator\ModelLoader;
 use VictorYoalli\LaravelCodeGenerator\CodeGenerator;
 use VictorYoalli\LaravelCodeGenerator\Facades\CodeHelper;
 
+function printif($type, $filename, $msg = '✖ Not generated ')
+{
+    echo($filename === '' ? $msg . ' : ' . $type : "✔ {$filename}") . "\n";
+}
+
 class CodegenApiCommand extends Command
 {
     protected $signature = 'codegen:api {model} ' . 
