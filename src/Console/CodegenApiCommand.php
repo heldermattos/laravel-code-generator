@@ -58,7 +58,7 @@ class CodegenApiCommand extends Command
         printif('API Controller', CodeGenerator::generate(
             $m,
             $theme . '/Http/Controllers/ModelApiController',
-            "{$base_path}/Http/Controllers/{$folder}Controller.php", $force, $options
+            "{$base_path}/Http/Controllers/{$m->name}Controller.php", $force, $options
         ));
 
         printif('API Resource', CodeGenerator::generate(
