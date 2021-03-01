@@ -1,6 +1,6 @@
 {!! CodeHelper::PHPSOL() !!}
 
-namespace App\Api\{{CodeHelper::plural($model->name)}}\Http\Resources;
+namespace App\Api\{{$version}}\{{CodeHelper::plural($model->name)}}\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 

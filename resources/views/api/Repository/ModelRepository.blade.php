@@ -1,14 +1,14 @@
 {!! CodeHelper::PHPSOL() !!}
 
-namespace App\Api\{{CodeHelper::plural($model->name)}}\Repository;
+namespace App\Api\{{$version}}\{{CodeHelper::plural($model->name)}}\Repository;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
 use {{$model->complete_name}};
 use App\Contratcts\ApiResourceRepositoryInterface;
-use App\Api\{{CodeHelper::plural($model->name)}}\Http\Resources\{{$model->name}}Collection;
-use App\Api\{{CodeHelper::plural($model->name)}}\Http\Resources\{{$model->name}} as {{$model->name}}Resource;
+use App\Api\{{$version}}\{{CodeHelper::plural($model->name)}}\Http\Resources\{{$model->name}}Collection;
+use App\Api\{{$version}}\{{CodeHelper::plural($model->name)}}\Http\Resources\{{$model->name}} as {{$model->name}}Resource;
 
 class {{CodeHelper::plural($model->name)}}Repository implements ApiResourceRepositoryInterface
 {
