@@ -1,8 +1,8 @@
 {!! CodeHelper::PHPSOL() !!}
 
-namespace App\Api\{{$version}}\{{CodeHelper::plural($model->name)}}\Http\Controllers;
+namespace App\Api\{{$options->version}}\{{CodeHelper::plural($model->name)}}\Http\Controllers;
 
-use App\Api\{{$version}}\{{CodeHelper::plural($model->name)}}\Repository\{{CodeHelper::plural($model->name)}}Repository;
+use App\Api\{{$options->version}}\{{CodeHelper::plural($model->name)}}\Repository\{{CodeHelper::plural($model->name)}}Repository;
 use App\Http\Controllers\BaseApiController;
 
 class {{$model->name}}Controller extends BaseApiController

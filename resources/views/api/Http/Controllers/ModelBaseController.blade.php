@@ -1,6 +1,6 @@
 {!! CodeHelper::PHPSOL() !!}
 
-namespace App\Api\{{$version}}\{{CodeHelper::plural($model->name)}}\Http\Controllers;
+namespace App\Api\{{$options->version}}\{{CodeHelper::plural($model->name)}}\Http\Controllers;
 
 use App\Core\Http\Controllers\Controller;
 
