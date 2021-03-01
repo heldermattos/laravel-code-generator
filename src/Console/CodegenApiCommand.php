@@ -4,8 +4,8 @@ namespace VictorYoalli\LaravelCodeGenerator\Console;
 
 use Illuminate\Console\Command;
 use VictorYoalli\LaravelCodeGenerator\ModelLoader;
-use VictorYoalli\LaravelCodeGenerator\CodeGenerator;
 use VictorYoalli\LaravelCodeGenerator\Facades\CodeHelper;
+use VictorYoalli\LaravelCodeGenerator\Facades\CodeGenerator;
 
 function printif($type, $filename, $msg = '✖ Not generated ')
 {
@@ -28,7 +28,7 @@ class CodegenApiCommand extends Command
         parent::__construct();
     }
 
-    public function handle(ModelLoader $loader, CodeGenerator $generator)
+    public function handle(ModelLoader $loader)
     {
         // many changes to make, massa
         $model = $this->argument('model');
