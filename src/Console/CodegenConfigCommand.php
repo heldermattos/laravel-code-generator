@@ -26,7 +26,6 @@ class CodegenConfigCommand extends Command
     {
         // many changes to make, massa
         $config = $this->argument('config');
-        $subconfig = $this->argument('subconfig');
 
         if (empty($config)) {
             return;
@@ -37,7 +36,7 @@ class CodegenConfigCommand extends Command
 
         $options = compact(['theme', 'version']);
         
-        $m = config('apigateway.'.$config);
+        $m = config('codegen.'.$config);
 
         $this->generate($m, $options, $theme, true);
     }
