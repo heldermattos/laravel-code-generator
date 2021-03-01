@@ -6,21 +6,16 @@ use Illuminate\Console\Command;
 use VictorYoalli\LaravelCodeGenerator\Facades\CodeHelper;
 use VictorYoalli\LaravelCodeGenerator\Facades\CodeGenerator;
 
-function printif($type, $filename, $msg = '✖ Not generated ')
-{
-    echo($filename === '' ? $msg . ' : ' . $type : "✔ {$filename}") . "\n";
-}
-
 class CodegenConfigCommand extends Command
 {
-    protected $signature = 'codegen:api {config} ' . 
+    protected $signature = 'codegen:config {config} ' . 
         '{--namespace=App\Models : Models Namespace} ' .
         '{--t|template= : template location} ' .
         '{--o|outfile= : Output file location} ' .
         '{--theme=apiconfig : Theme} ' .
         '{--apiversion=V1 : Api Version}';
 
-    protected $description = 'A Laravel Code Generator based on your Models.';
+    protected $description = 'A Laravel Code Generator based on your Config file.';
 
     public function __construct()
     {
