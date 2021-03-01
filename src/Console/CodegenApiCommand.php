@@ -13,7 +13,7 @@ class CodegenApiCommand extends Command
         '{--t|template= : template location} ' .
         '{--o|outfile= : Output file location} ' .
         '{--theme=api : Theme} ' .
-        '{--version=V1 : Version}';
+        '{--v|version=V1 : Version}';
 
     protected $description = 'A Laravel Code Generator based on your Models.';
 
