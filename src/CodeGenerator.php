@@ -3,7 +3,6 @@
 namespace VictorYoalli\LaravelCodeGenerator;
 
 use Illuminate\Filesystem\Filesystem;
-use VictorYoalli\LaravelCodeGenerator\Structure\Model;
 
 class CodeGenerator
 {
@@ -24,11 +23,11 @@ class CodeGenerator
     /**
      * Undocumented function
      *
-     * @param Model $model
+     * @param mix $model
      * @param string $template
      * @return void
      */
-    public function render(Model $model, string $template, array $options = [])
+    public function render($model, string $template, array $options = [])
     {
         $options = (object) $options;
         return $this->view->make('laravel-code-generator::' . $template, compact(['model', 'options']))->render();
@@ -39,13 +38,13 @@ class CodeGenerator
      * Outfile is optional. If you ommit it, the function will return the code generated as a string.
      * otherwise will return the name of the file generated.
      * You can overwrite a file if it exists setting $overwrite = true;
-     * @param Model $model
+     * @param mix $model
      * @param string $template
      * @param string $outputFile
      * @param boolean $overwrite
      * @return void
      */
-    public function generate(Model $model, string $template, string $outputFile = null, bool $overwrite = true, array $options = [])
+    public function generate($model, string $template, string $outputFile = null, bool $overwrite = true, array $options = [])
     {
         if ($outputFile === null) {
             return $this->render($model, $template, $options);
