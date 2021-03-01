@@ -3,7 +3,7 @@
 namespace VictorYoalli\LaravelCodeGenerator;
 
 use Illuminate\Support\ServiceProvider;
-use VictorYoalli\LaravelCodeGenerator\Console\GenerateCommand;
+use VictorYoalli\LaravelCodeGenerator\Console\CodegenApiCommand;
 
 class LaravelCodeGeneratorServiceProvider extends ServiceProvider
 {
@@ -25,7 +25,7 @@ class LaravelCodeGeneratorServiceProvider extends ServiceProvider
             ], 'config');
 
             $this->commands([
-                GenerateCommand::class,
+                CodegenApiCommand::class,
             ]);
         }
     }
