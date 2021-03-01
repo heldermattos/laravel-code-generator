@@ -1,7 +1,7 @@
 {!! CodeHelper::PHPSOL() !!}
 
 Route::group([
-    'prefix' => '{{CodeHelper::camel(odeHelper::plural($model->name))}}'
+    'prefix' => '{{CodeHelper::camel(CodeHelper::plural($model->name))}}'
 ], function ($router) {
     Route::get('/', '{{$model->name}}Controller@list');
     Route::get('/{id}', '{{$model->name}}Controller@item');
