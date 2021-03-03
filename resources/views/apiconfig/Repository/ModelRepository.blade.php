@@ -8,7 +8,7 @@ use App\Contratcts\ApiResourceRepositoryInterface;
 
 class {{CodeHelper::plural($model->name)}}Repository implements ApiResourceRepositoryInterface
 {
-    protected $uri = {{$model->base_uri}};
+    protected $uri = "{{$model->base_uri}}";
 
     public function list(Request $request)
     {
