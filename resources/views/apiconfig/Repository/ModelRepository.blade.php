@@ -2,35 +2,35 @@
 
 namespace App\Api\{{$options->version}}\{{CodeHelper::plural($model->name)}}\Repository;
 
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Spatie\QueryBuilder\QueryBuilder;
+use Illuminate\Support\Facades\Http;
 use App\Contratcts\ApiResourceRepositoryInterface;
-use App\Api\{{$options->version}}\{{CodeHelper::plural($model->name)}}\Http\Resources\{{$model->name}}Collection;
-use App\Api\{{$options->version}}\{{CodeHelper::plural($model->name)}}\Http\Resources\{{$model->name}} as {{$model->name}}Resource;
 
 class {{CodeHelper::plural($model->name)}}Repository implements ApiResourceRepositoryInterface
 {
+    protected $uri = {{$model->base_uri}};
+
     public function list(Request $request)
     {
+        $res = Http::get($this->uri . $request->getRequestUri());
 
+        return response()->json($res->json(), $res->status());
     }
 
     public function item(Request $request, $id)
     {
+        $res = Http::get($this->uri . $request->getRequestUri());
 
+        return response()->json($res->json(), $res->status());
     }
 
     public function create(Request $request)
     {
 
-
     }
 
     public function update(Request $request, $id)
     {
-
-
 
     }
 

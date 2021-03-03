@@ -46,7 +46,7 @@ class {{CodeHelper::plural($model->name)}}Repository implements ApiResourceRepos
 
     public function item(Request $request, $id)
     {
-        $data = {{$model->name}}::find($id);
+        $data = {{$model->name}}::findOrFail($id);
 
         switch ($request->get('type')) {
             case 'doc':
@@ -91,7 +91,7 @@ class {{CodeHelper::plural($model->name)}}Repository implements ApiResourceRepos
 
     public function update(Request $request, $id)
     {
-        $model = {{$model->name}}::find($id);
+        $model = {{$model->name}}::findOrFail($id);
 
         $validated = $request->validate([
             @foreach($model->table->columns as $col)
