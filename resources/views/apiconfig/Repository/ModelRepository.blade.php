@@ -26,12 +26,16 @@ class {{CodeHelper::plural($model->name)}}Repository implements ApiResourceRepos
 
     public function create(Request $request)
     {
+        $res = Http::post($this->uri . $request->getRequestUri());
 
+        return response()->json($res->json(), $res->status());
     }
 
     public function update(Request $request, $id)
     {
+        $res = Http::put($this->uri . $request->getRequestUri());
 
+        return response()->json($res->json(), $res->status());
     }
 
     public function patch(Request $request, $id)

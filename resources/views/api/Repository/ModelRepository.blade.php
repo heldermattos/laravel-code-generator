@@ -7,11 +7,14 @@ use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
 use {{$model->complete_name}};
 use App\Contratcts\ApiResourceRepositoryInterface;
+use Laravel\Lumen\Routing\ProvidesConvenienceMethods;
 use App\Api\{{$options->version}}\{{CodeHelper::plural($model->name)}}\Http\Resources\{{$model->name}}Collection;
 use App\Api\{{$options->version}}\{{CodeHelper::plural($model->name)}}\Http\Resources\{{$model->name}} as {{$model->name}}Resource;
 
 class {{CodeHelper::plural($model->name)}}Repository implements ApiResourceRepositoryInterface
 {
+    use ProvidesConvenienceMethods;
+
     public function list(Request $request)
     {
         switch ($request->get('type')) {
@@ -61,7 +64,7 @@ class {{CodeHelper::plural($model->name)}}Repository implements ApiResourceRepos
 
     public function create(Request $request)
     {
-        $validated = $request->validate([
+        $validated = $this->validate($request, [
             @foreach($model->table->columns as $col)
                 @if(!CodeHelper::contains('/^id$/',$col->name) && !CodeHelper::contains('/created_at$/',$col->name) && !CodeHelper::contains('/updated_at$/',$col->name) && !CodeHelper::contains('/deleted_at$/',$col->name))
                     @if(!$col->nullable)
@@ -93,7 +96,7 @@ class {{CodeHelper::plural($model->name)}}Repository implements ApiResourceRepos
     {
         $model = {{$model->name}}::findOrFail($id);
 
-        $validated = $request->validate([
+        $validated = $this->validate($request, [
             @foreach($model->table->columns as $col)
                 @if(!CodeHelper::contains('/^id$/',$col->name) && !CodeHelper::contains('/created_at$/',$col->name) && !CodeHelper::contains('/updated_at$/',$col->name) && !CodeHelper::contains('/deleted_at$/',$col->name))
                     @if(!$col->nullable)
