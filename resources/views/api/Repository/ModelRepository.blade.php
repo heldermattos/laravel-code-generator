@@ -2,10 +2,11 @@
 
 namespace App\Api\{{$options->version}}\{{CodeHelper::plural($model->name)}}\Repository;
 
+use {{$model->complete_name}};
 use Illuminate\Support\Str;
+use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
-use {{$model->complete_name}};
 use App\Contratcts\ApiResourceRepositoryInterface;
 use Laravel\Lumen\Routing\ProvidesConvenienceMethods;
 use App\Api\{{$options->version}}\{{CodeHelper::plural($model->name)}}\Http\Resources\{{$model->name}}Collection;
@@ -13,7 +14,8 @@ use App\Api\{{$options->version}}\{{CodeHelper::plural($model->name)}}\Http\Reso
 
 class {{CodeHelper::plural($model->name)}}Repository implements ApiResourceRepositoryInterface
 {
-    use ProvidesConvenienceMethods;
+    use ProvidesConvenienceMethods,
+        ApiResponser;
 
     public function list(Request $request)
     {
@@ -51,15 +53,7 @@ class {{CodeHelper::plural($model->name)}}Repository implements ApiResourceRepos
     {
         $data = {{$model->name}}::findOrFail($id);
 
-        switch ($request->get('type')) {
-            case 'doc':
-                return new {{$model->name}}Doc($data);
-                break;
-
-            default:
-                return new {{$model->name}}Resource($data);
-                break;
-        }
+        return new {{$model->name}}Resource($data);
     }
 
     public function create(Request $request)
@@ -82,14 +76,7 @@ class {{CodeHelper::plural($model->name)}}Repository implements ApiResourceRepos
 
         $model = {{$model->name}}::create($validated);
 
-        return response()->json([
-            'id' => $model->id,
-            'toast' => [
-                'success',
-                'Novo item criado com sucesso',
-                'Criado'
-            ]
-        ]);
+        return $this->created($model);
     }
 
     public function update(Request $request, $id)
@@ -114,15 +101,13 @@ class {{CodeHelper::plural($model->name)}}Repository implements ApiResourceRepos
 
         $model->fill($validated);
 
+        if ($model->isClean()) {
+            return $this->isClean();
+        }
+
         $model->save();
 
-        return response()->json([
-            'toast' => [
-                'success',
-                'Alteração salva com sucesso!',
-                'Salvo'
-            ]
-        ]);
+        return $this->updated();
     }
 
     public function patch(Request $request, $id)

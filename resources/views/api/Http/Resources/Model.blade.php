@@ -14,13 +14,23 @@ class {{$model->name}} extends AppJsonResource
      */
     public function toArray($request)
     {
-        $default = [
-            'id' => $this->id,
-            'name' => $this->name
-        ];
-
         $result = $this->building($request);
 
-        return $result['builded'] ? $result['data'] : $default;
+        return $result['builded'] ? $result['data'] : $this->getDefault();
+    }
+
+    public function getDefault()
+    {
+        if (property_exists($this, 'model')) {
+            $model = $this->model;
+            $model["id"] = $this->id;
+            return $model;
+        } else {
+            return [
+                @foreach($model->table->columns as $col)
+                    '{{$col->name}}' => $this->{{$col->name}},
+                @endforeach
+            ];
+        }
     }
 }
