@@ -36,7 +36,7 @@ class CodegenConfigCommand extends Command
 
         $options = compact(['theme', 'version']);
         
-        $m = config('codegen.'.$config);
+        $m = config('microservices.'.$config);
 
         $this->generate($m, $options, $theme, true);
     }
