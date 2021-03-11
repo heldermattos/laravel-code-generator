@@ -13,7 +13,7 @@ class {{$model->name}}Controller extends Controller
     protected $msBaseUrl = "";
     
     protected $msSecretKey = "";
-
+  
     protected $request = "";
 
     public function __construct(Request $request)
