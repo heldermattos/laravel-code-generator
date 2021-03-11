@@ -59,11 +59,5 @@ class CodegenConfigCommand extends Command
             $theme . '/Http/Routes/index',
             "{$base_path}/Http/Routes/index.php", $force, $options
         ));
-
-        printif('API Repository', CodeGenerator::generate(
-            $m,
-            $theme . '/Repository/ModelRepository',
-            "{$base_path}/Repository/{$folder}Repository.php", $force, $options
-        ));
     }
 }
