@@ -21,7 +21,7 @@ class {{$model->name}} extends AppJsonResource
 
     public function getDefault()
     {
-        if (property_exists($this, 'model')) {
+        if (array_key_exists('model', $this->attributesToArray())) {
             $model = $this->model;
             $model["id"] = $this->id;
             return $model;
