@@ -88,10 +88,7 @@ class {{CodeHelper::plural($model->name)}}Repository implements ApiResourceRepos
         $model = {{$model->name}}::findOrFail($id);
 
         $validated = $this->validate($request, [
-            @foreach($model->table->columns as $col)
-            @if(!CodeHelper::contains('/^id$/',$col->name) && !CodeHelper::contains('/created_at$/',$col->name) && !CodeHelper::contains('/updated_at$/',$col->name) && !CodeHelper::contains('/deleted_at$/',$col->name))
-            @if(!$col->nullable)
-            @if(CodeHelper::contains('/^name$/',$col->name))
+            @foreach($model->table->columns as $col) @if(!CodeHelper::contains('/^id$/',$col->name) && !CodeHelper::contains('/created_at$/',$col->name) && !CodeHelper::contains('/updated_at$/',$col->name) && !CodeHelper::contains('/deleted_at$/',$col->name)) @if(!$col->nullable) @if(CodeHelper::contains('/^name$/',$col->name))
             '{{$col->name}}' => ['required','unique:{{$model->table->name}},name,'.$id],
             @else
             '{{$col->name}}' => ['required'],
