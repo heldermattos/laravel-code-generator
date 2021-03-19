@@ -74,6 +74,10 @@ class {{CodeHelper::plural($model->name)}}Repository implements ApiResourceRepos
             @endforeach
         ]);
 
+        if (array_key_exists('model', $model->table->columns)) {
+            $validated["model"] = $request->all();
+        }
+
         $model = {{$model->name}}::create($validated);
 
         return $this->created($model);
@@ -98,6 +102,11 @@ class {{CodeHelper::plural($model->name)}}Repository implements ApiResourceRepos
                 @endif
             @endforeach
         ]);
+
+        if (array_key_exists('model', $model->table->columns)) {
+            $validated["model"] = $request->all();
+        }
+
 
         $model->fill($validated);
 
