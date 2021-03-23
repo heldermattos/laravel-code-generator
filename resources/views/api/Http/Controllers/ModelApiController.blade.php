@@ -2,11 +2,11 @@
 
 namespace App\Api\{{$options->version}}\{{CodeHelper::plural($model->name)}}\Http\Controllers;
 
-use Laravel\Lumen\Routing\Controller;
 use {{$model->complete_name}};
 use Illuminate\Support\Str;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
+use Laravel\Lumen\Routing\Controller;
 use Spatie\QueryBuilder\QueryBuilder;
 use App\Contratcts\ApiResourceRepositoryInterface;
 use Laravel\Lumen\Routing\ProvidesConvenienceMethods;
